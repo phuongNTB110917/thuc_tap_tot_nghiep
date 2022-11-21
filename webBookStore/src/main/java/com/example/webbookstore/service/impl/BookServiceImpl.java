@@ -33,12 +33,38 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Page<Book>findBookByNameContaining(String name, Pageable pageable) {
+        return bookRepository.findBookByNameContaining(name, pageable);
+    }
+
+    @Override
+    public List<Book> findBookByForeign() {
+        return bookRepository.findBookByForeign();
+    }
+
+    @Override
+    public List<Book> findBookByNews() {
+        return bookRepository.findBookByNews();
+    }
+
+    @Override
+    public List<Book> findBookByVietnam() {
+        return bookRepository.findBookByVietnam();
+    }
+
+    @Override
+    public List<Book> findBookByChildren() {
+        return bookRepository.findBookByChildren();
+    }
+
+
+    @Override
     public List<Book> findBookByNumberRecord(int numberRecord) {
         return bookRepository.findBookByNumberRecord(numberRecord);
     }
 
-    @Override
-    public Page<Book> search(String book, Pageable pageable) {
-        return bookRepository.search(book, pageable);
-    }
+//    @Override
+//    public Page<Book> search(String book, Pageable pageable) {
+//        return bookRepository.search(book, pageable);
+//    }
 }
