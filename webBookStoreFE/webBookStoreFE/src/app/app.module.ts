@@ -13,17 +13,19 @@ import { IntroduceComponent } from './commons/introduce/introduce.component';
 import { NewsBookComponent } from './user/news-book/news-book.component';
 import { ForeignBookComponent } from './user/foreign-book/foreign-book.component';
 import { VietnamBookComponent } from './user/vietnam-book/vietnam-book.component';
+import { ChildrenBookComponent } from './user/children-book/children-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     IntroduceComponent,
+    HomeComponent,
     NewsBookComponent,
     ForeignBookComponent,
     VietnamBookComponent,
+    ChildrenBookComponent,
   ],
   imports: [
     BrowserModule,
