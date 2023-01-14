@@ -14,6 +14,9 @@ import { NewsBookComponent } from './user/news-book/news-book.component';
 import { ForeignBookComponent } from './user/foreign-book/foreign-book.component';
 import { VietnamBookComponent } from './user/vietnam-book/vietnam-book.component';
 import { ChildrenBookComponent } from './user/children-book/children-book.component';
+import { LoginComponent } from './user/login/login.component';
+import {ToastrModule} from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { ChildrenBookComponent } from './user/children-book/children-book.compon
     ForeignBookComponent,
     VietnamBookComponent,
     ChildrenBookComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,13 @@ import { ChildrenBookComponent } from './user/children-book/children-book.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // ToastrModule.forRoot({
+    //   // timeOut: 2000,
+    //   // progressBar: true,
+    //   // progressAnimation: 'increasing',
+    //   // preventDuplicates: true
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

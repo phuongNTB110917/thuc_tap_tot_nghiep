@@ -6,6 +6,7 @@ import {NewsBookComponent} from './user/news-book/news-book.component';
 import {ForeignBookComponent} from './user/foreign-book/foreign-book.component';
 import {VietnamBookComponent} from './user/vietnam-book/vietnam-book.component';
 import {ChildrenBookComponent} from './user/children-book/children-book.component';
+import {LoginComponent} from './user/login/login.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'children',
     component: ChildrenBookComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

@@ -23,6 +23,19 @@ public class Role {
     @JsonIgnore
     private List<User> users;
 
+    public Role(String name) {
+        this.name=name;
+    }
+
+    public Role() {
+    }
+
+    public Role(Integer id, String name, List<User> users) {
+        this.id = id;
+        this.name = name;
+        this.users = users;
+    }
+
     public Integer getId() {
         return id;
     }
