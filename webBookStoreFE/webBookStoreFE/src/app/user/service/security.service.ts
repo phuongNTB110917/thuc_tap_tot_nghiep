@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LoginRequest} from '../../model/login-request';
 import {ResponseMessage} from '../../model/response-message';
+import {RegisterRequest} from '../../model/register-request';
 
 const API_URL_AUTH = 'http://localhost:8080/api/auth';
 @Injectable({
@@ -26,6 +27,11 @@ export class SecurityService {
       username: obj.username,
       password: obj.password
     }, this.httpOptions);
+  }
+
+  signup(registerRequest: RegisterRequest): Observable<ResponseMessage> {
+    return this.http.post<ResponseMessage>(API_URL_AUTH + '/signup', registerRequest);
+
   }
 
 }

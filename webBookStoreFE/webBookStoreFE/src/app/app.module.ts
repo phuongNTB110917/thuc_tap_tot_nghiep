@@ -16,6 +16,8 @@ import { VietnamBookComponent } from './user/vietnam-book/vietnam-book.component
 import { ChildrenBookComponent } from './user/children-book/children-book.component';
 import { LoginComponent } from './user/login/login.component';
 import {ToastrModule} from 'ngx-toastr';
+import { SignupComponent } from './user/signup/signup.component';
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import {ToastrModule} from 'ngx-toastr';
     VietnamBookComponent,
     ChildrenBookComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,12 +41,12 @@ import {ToastrModule} from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    // ToastrModule.forRoot({
-    //   // timeOut: 2000,
-    //   // progressBar: true,
-    //   // progressAnimation: 'increasing',
-    //   // preventDuplicates: true
-    // })
+    ToastrModule.forRoot({
+      // timeOut: 2000,
+      // progressBar: true,
+      // progressAnimation: 'increasing',
+      // preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

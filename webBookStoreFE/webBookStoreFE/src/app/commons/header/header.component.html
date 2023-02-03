@@ -18,8 +18,7 @@
               <a><i class="fas fa-heart"></i></a>
             </div>
             <div class="header__top__right__auth" *ngIf="isLogin">
-              <a><i class="fa fa-user"></i> </a>
-              {{user?.username}}
+              <a><i class="fa fa-user"></i> </a>{{user?.username}}
               <ul class="header__menu__dropdown" >
                 <a (click)="logout()">Thoát tài khoản</a>
               </ul>

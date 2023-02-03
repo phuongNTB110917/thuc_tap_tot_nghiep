@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
               private securityService: SecurityService,
               private router: Router,
               private route: ActivatedRoute,
-              // private toastr: ToastrService,
+              private toastr: ToastrService,
               private shareService: ShareService) { }
 
   ngOnInit(): void {
     this.formLogin = this.formBuild.group({
         username: ['', [Validators.required]],
-        password: ['', [Validators.required]]
+        password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]]
       }
     );
   }
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.securityService.login(this.formLogin.value).subscribe(
       data => {
-        // this.toastr.success('Đăng nhâp thành công');
+        this.toastr.success('Đăng nhâp thành công');
         console.log(data);
 
         /* Store info user*/
@@ -45,11 +45,11 @@ export class LoginComponent implements OnInit {
       err => {
         console.log(err.error.message);
         this.isLogin = true;
-        // this.toastr.error('Sai tên đăng nhập hoặc mật khẩu hoặc tài khoản chưa được kích hoạt', 'Đăng nhập thất bại: ', {
-        //   // positionClass: 'toast-top-right',
-        //   // timeOut: 3000,
-        //   // extendedTimeOut: 1500
-        // });
+        this.toastr.error('Sai tên đăng nhập hoặc mật khẩu hoặc tài khoản chưa được kích hoạt', 'Đăng nhập thất bại: ', {
+          // positionClass: 'toast-top-right',
+          // timeOut: 3000,
+          // extendedTimeOut: 1500
+        });
       }
     );
   }

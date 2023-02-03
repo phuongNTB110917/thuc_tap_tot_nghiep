@@ -1,0 +1,82 @@
+<body>
+<!-- main -->
+<div class="main-w3layouts wrapper">
+  <h1>ĐĂNG KÝ</h1>
+  <div class="main-agileinfo">
+    <div class="agileits-top">
+      <form [formGroup]="formSignup" (ngSubmit)="onSave()" #fr="ngForm">
+        <span class="form-signup" style="color:red;"></span>
+        <div class="form-signup">
+          <div class="form-group">
+
+            <div class="input-wrapper">
+              <label for="username" class="input-label">Tên tài khoản</label>
+              <input type="text" placeholder="Nhập tên tài khoản"
+                     id="username" class="input-control" formControlName="username">
+              <div *ngFor="let validation of validationMessages.username">
+                <div *ngIf="username.hasError(validation.type) && (username.touched || fr.submitted)"
+                     class="error mt-8">{{validation.message}}</div>
+              </div>
+            </div>
+
+            <div class="input-wrapper position-relative">
+              <label for="email" class="input-label">Email</label>
+              <input type="text" placeholder="Nhập email đăng ký"
+                     id="email" class="input-control" formControlName="email">
+              <div *ngFor="let validation of validationMessages.email">
+                <div *ngIf="email.hasError(validation.type) && (email.touched || fr.submitted)"
+                     class="error mt-8">{{validation.message}}</div>
+              </div>
+            </div>
+
+            <div formGroupName="pwGroup">
+              <div class="input-wrapper position-relative">
+                <label for="password" class="input-label">Mật khẩu</label>
+                <input type="password" placeholder="Nhập mật khẩu mới"
+                       id="password" class="input-control" formControlName="password">
+                <i id="toggleNewPass" (click)="togglePassword('#pasword', '#toggleNewPass')"></i>
+
+                <div *ngFor="let validation of validationMessages.password">
+                  <div *ngIf="password.hasError(validation.type) && (password.touched || fr.submitted)"
+                       class="error mt-8">{{validation.message}}</div>
+                </div>
+              </div>
+              <div class="input-wrapper position-relative">
+                <label for="confirmPass" class="input-label">Xác nhận mật khẩu</label>
+                <input type="password" placeholder="Xác nhận mật khẩu"
+                       id="confirmPass" class="input-control" formControlName="confirmPass">
+                <i id="toggleConfirmPass" (click)="togglePassword('#confirmPass', '#toggleConfirmPass')"></i>
+
+                <div *ngFor="let validation of validationMessages.confirmPass">
+                  <div *ngIf="confirmPass.hasError(validation.type) && (confirmPass.touched || fr.submitted)"
+                       class="error mt-8">{{validation.message}}</div>
+                </div>
+              </div>
+            </div>
+
+<!--            <input  formControlName="username" id="username" type="text" class="text" placeholder="Tên tài khoản *" required>-->
+<!--            <small *ngIf="formSignup.get('username').invalid && formSignup.get('username').touched" class="text-danger">Vui lòng nhập tên tài khoản!!</small>-->
+
+<!--            <input  formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" id="email" type="email" class="text email" placeholder="Email *" required>-->
+<!--            <small *ngIf="formSignup.get('email').invalid && formSignup.get('email').touched" class="text-danger">Vui lòng nhập email!!</small>-->
+
+<!--            <input  formControlName="password" id="password-field" type="password" class="text" placeholder="Mật khẩu *" required>-->
+<!--            <small *ngIf="formSignup.get('password').invalid && formSignup.get('password').touched" class="text-danger">Vui lòng nhập mật khẩu!!</small>-->
+
+          </div>
+
+          <input type="submit" value="Đăng ký">
+        </div>
+      </form>
+
+
+
+      <p>Không đăng ký tài khoản?<a href="login"> Đăng nhập !</a></p>
+    </div>
+  </div>
+  <!-- copyright -->
+</div>
+<!-- //main -->
+</body>
+
+
