@@ -8,6 +8,8 @@ import {VietnamBookComponent} from './user/vietnam-book/vietnam-book.component';
 import {ChildrenBookComponent} from './user/children-book/children-book.component';
 import {LoginComponent} from './user/login/login.component';
 import {SignupComponent} from './user/signup/signup.component';
+import {DetailComponent} from './user/detail/detail.component';
+import {CartComponent} from './user/cart/cart.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'detail/:id',
+    component: DetailComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 

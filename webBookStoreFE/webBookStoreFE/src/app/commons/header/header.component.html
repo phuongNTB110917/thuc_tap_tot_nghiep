@@ -19,9 +19,16 @@
             </div>
             <div class="header__top__right__auth" *ngIf="isLogin">
               <a><i class="fa fa-user"></i> </a>{{user?.username}}
-              <ul class="header__menu__dropdown" >
-                <a (click)="logout()">Thoát tài khoản</a>
-              </ul>
+              <div class="dropdown">
+                <a class="nut_dropdown"><i class="fas fa-sign-in-alt"></i></a>
+                <div class="noidung_dropdown">
+                  <a (click)="logout()">Thoát tài khoản</a>
+                </div>
+              </div>
+
+<!--              <ul class="header__menu__dropdown" >-->
+<!--                <li><a (click)="logout()">Thoát tài khoản</a></li>-->
+<!--              </ul>-->
             </div>
             <i [routerLink]="['/login']" class="fa fa-user" *ngIf="!isLogin"></i>
           </div>
@@ -39,7 +46,7 @@
       <div class="col-lg-8">
         <nav class="header__menu">
           <ul>
-            <li><a href=" ">Danh Mục Sách</a>
+            <li><a [routerLink]="['/']">Danh Mục Sách</a>
               <ul class="header__menu__dropdown">
                 <li><a [routerLink]="['/vietnam']">Văn học Việt Nam</a></li>
                 <li><a [routerLink]="['/foreign']">Văn học nước ngoài</a></li>
@@ -57,7 +64,7 @@
       <div class="col-lg-1">
         <div class="header__cart">
           <ul>
-            <li><a [routerLink]="['/cart']"><i class="fa fa-shopping-cart"></i><span>3</span></a></li>
+            <li><a [routerLink]="['/cart']"><i class="fa fa-shopping-cart"></i><span>0</span></a></li>
           </ul>
         </div>
       </div>

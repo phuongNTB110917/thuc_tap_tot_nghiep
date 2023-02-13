@@ -17,6 +17,8 @@ import { ChildrenBookComponent } from './user/children-book/children-book.compon
 import { LoginComponent } from './user/login/login.component';
 import {ToastrModule} from 'ngx-toastr';
 import { SignupComponent } from './user/signup/signup.component';
+import { DetailComponent } from './user/detail/detail.component';
+import { CartComponent } from './user/cart/cart.component';
 
 
 
@@ -33,6 +35,8 @@ import { SignupComponent } from './user/signup/signup.component';
     ChildrenBookComponent,
     LoginComponent,
     SignupComponent,
+    DetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

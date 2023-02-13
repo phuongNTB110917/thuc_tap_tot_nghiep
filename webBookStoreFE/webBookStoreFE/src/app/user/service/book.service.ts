@@ -39,4 +39,8 @@ export class BookService {
   getChildrenBook(): Observable<Book[]> {
     return this.http.get<Book[]>(API_URL_BOOK + '/children');
   }
+
+  findById(id: number): Observable<Book> {
+    return this.http.get<Book>(API_URL_BOOK + '/findById?id=' + id);
+  }
 }
