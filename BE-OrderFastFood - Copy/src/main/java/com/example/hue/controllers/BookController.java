@@ -36,13 +36,6 @@ public class BookController {
         return ResponseEntity.ok(books);
     }
 
-    @GetMapping("/search")
-    //@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<Page<Book>> getByNamePage(@RequestParam String name, @PageableDefault(size = 8) Pageable pageable) {
-        Page<Book> books = bookService.findBookByNameContaining(name, pageable);
-        return ResponseEntity.ok(books);
-    }
-
     @GetMapping("/foreign")
     public ResponseEntity<List<Book>> getByForeign(){
         return new ResponseEntity<>(bookService.findBookByForeign(), HttpStatus.OK);
@@ -72,6 +65,18 @@ public class BookController {
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<Page<Book>> search(@RequestParam String q, @PageableDefault(size = 8) Pageable pageable) {
+        System.out.println("Search value = " + q);
+        return new ResponseEntity<>(bookService.search(q, pageable), HttpStatus.OK);
+    }
+
+    //    @GetMapping("/search")
+//    //@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+//    public ResponseEntity<Page<Book>> getByNamePage(@RequestParam String name, @PageableDefault(size = 8) Pageable pageable) {
+//        Page<Book> books = bookService.findBookByNameContaining(name, pageable);
+//        return ResponseEntity.ok(books);
+//    }
 
 
 }

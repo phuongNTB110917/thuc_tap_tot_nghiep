@@ -15,8 +15,6 @@ public interface BookService {
 
     Page<Book> findAll(Pageable pageable);
 
-    Page<Book>findBookByNameContaining(String name, Pageable pageable);
-
     List<Book>findBookByForeign();
 
     List<Book>findBookByNews();
@@ -28,5 +26,9 @@ public interface BookService {
 //    List<Book> findBookByNumberRecord(int numberRecord);
 
     Book findById(Integer id);
+
+    Page<Book> search(String book, Pageable page);
+
+//    Page<Book>findBookByNameContaining(String name, Pageable pageable);
 
 }

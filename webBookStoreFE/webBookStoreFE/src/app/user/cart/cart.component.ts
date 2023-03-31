@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
   book: Book;
   totalPrice = 0;
   quantityCheck = 0;
+  id: number;
 
 
   constructor(private cartService: CartService, private storageService: TokenStorageService,
@@ -154,4 +155,5 @@ export class CartComponent implements OnInit {
       this.cartStorageService.removeItem(this.cartItems[index]);
     }
   }
+
 }

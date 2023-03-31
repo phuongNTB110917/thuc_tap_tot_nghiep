@@ -31,11 +31,11 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query(value = "select * from book limit :numberRecord", nativeQuery = true)
     List<Book> findBookByNumberRecord(int numberRecord);
 
-//    @Query(value = "select * from book join category on book.category_id = category.id " +
-//            "where book.name like %:search% or book.author like %:search% or category.name like %:search%",
-//            countQuery = "select count(*) from book join category on book.category_id = category.id " +
-//                    "where book.name like %:search% or book.author like %:search% or category.name like %:search%",
-//            nativeQuery = true)
-//    Page<Book> search(String search, Pageable page);
+    @Query(value = "select * from book join category on book.category_id = category.id " +
+            "where book.name like %:search% or book.price like %:search% or category.name like %:search%",
+            countQuery = "select count(*) from book join category on book.category_id = category.id " +
+                    "where book.name like %:search% or book.price like %:search% or category.name like %:search%",
+            nativeQuery = true)
+    Page<Book> search(String search, Pageable page);
 
 }

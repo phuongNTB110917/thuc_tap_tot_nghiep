@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Book} from '../../model/book';
+import {PageBook} from '../../model/page-book';
 
 const API_URL_BOOK = 'http://localhost:8080/api/book';
 
@@ -22,6 +23,11 @@ export class BookService {
 
   getSearch(name: string, page: number): Observable<Book> {
     return this.http.get<Book>(API_URL_BOOK + '/search?name=' + name + '&page=' + page);
+  }
+
+  // tìm kiếm tên sách, thể loại, giá,...
+  search(q: string, page: number): Observable<PageBook> {
+    return this.http.get<PageBook>(API_URL_BOOK + '/search?q=' + q + '&page=' + page);
   }
 
   getNewsBook(): Observable<Book[]> {

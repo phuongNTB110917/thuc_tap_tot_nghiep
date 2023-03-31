@@ -9,7 +9,7 @@
             <form [formGroup]="formSearch" (ngSubmit)="onSearch()" >
               <input formControlName="searchValue" type="text" placeholder="Sách cần tìm">
               <!--                      <input type="text" placeholder="Search">-->
-              <button type="submit" class="site-btn"><i class="fas fa-search"></i></button>
+              <button type="submit" class="site-btn" [disabled]="formSearch.invalid"><i class="fas fa-search"></i></button>
             </form>
           </div>
         </div>

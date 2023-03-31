@@ -32,10 +32,6 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAll(pageable);
     }
 
-    @Override
-    public Page<Book>findBookByNameContaining(String name, Pageable pageable) {
-        return bookRepository.findBookByNameContaining(name, pageable);
-    }
 
     @Override
     public List<Book> findBookByForeign() {
@@ -61,6 +57,17 @@ public class BookServiceImpl implements BookService {
     public Book findById(Integer id) {
         return bookRepository.findById(id).orElse(null);
     }
+
+    // tìm kiếm tên sách, thể loại, giá
+    @Override
+    public Page<Book> search(String book, Pageable page) {
+        return bookRepository.search(book, page);
+    }
+
+    //    @Override
+//    public Page<Book>findBookByNameContaining(String name, Pageable pageable) {
+//        return bookRepository.findBookByNameContaining(name, pageable);
+//    }
 
 
 //    @Override

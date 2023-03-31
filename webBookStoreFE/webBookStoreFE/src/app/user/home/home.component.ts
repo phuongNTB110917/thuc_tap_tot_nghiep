@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Book} from '../../model/book';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BookService} from '../service/book.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
       [Validators.pattern('^[a-zA-Z\\d .@-]*$')])
   });
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getAllHome(0);
@@ -65,18 +67,30 @@ export class HomeComponent implements OnInit {
     this.getAllHome(this.indexPagination);
   }
 
-  onSearch() {
-    // this.router.navigateByUrl('/search?name=' + this.formSearch.get('searchValue').value + '&page=1');
-    const nameSearch = this.formSearch.value;
-    // if (nameSearch.trim() === '') {
-    //   nameSearch = 'null';
-    // }
-    this.bookService.getSearch(nameSearch.searchValue, this.indexPagination).subscribe((data: any) => {
+  // onSearch() {
+  //   // this.router.navigateByUrl('/search?name=' + this.formSearch.get('searchValue').value + '&page=1');
+  //   const nameSearch = this.formSearch.value;
+  //   // if (nameSearch.trim() === '') {
+  //   //   nameSearch = 'null';
+  //   // }
+  //   this.bookService.getSearch(nameSearch.searchValue, this.indexPagination).subscribe((data: any) => {
+  //     this.books = data.content;
+  //     if (this.books.length === 0) {
+  //       console.log(this.books);
+  //     }
+  //   });
+  // }
+
+  onSearch(){
+    console.log(this.formSearch.value);
+    // this.router.navigateByUrl('/search?q=' + this.formSearch.get('searchValue').value + '&page=1');
+    const search =this.formSearch.value;
+    this.bookService.search(search.searchValue, this.indexPagination).subscribe((data:any)=>{
       this.books = data.content;
-      if (this.books.length === 0) {
+      if (this.books.length === 0){
         console.log(this.books);
       }
-    });
+    })
   }
 
 }
