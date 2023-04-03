@@ -75,6 +75,7 @@ ol {
   margin: 0;
 }
 
+
 .breadcrumb__text h2 {
   font-size: 46px;
   color: black;
@@ -335,9 +336,9 @@ ol {
   padding: 0;
 }
 
-.product__details__tab .product__details__tab__desc {
-  padding-top: 44px;
-}
+/*.product__details__tab .product__details__tab__desc {*/
+/*  padding-top: 44px;*/
+/*}*/
 
 .product__details__tab .product__details__tab__desc h6 {
   font-weight: 700;
