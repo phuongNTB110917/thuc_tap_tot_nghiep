@@ -69,10 +69,4 @@ public class BookServiceImpl implements BookService {
 //        return bookRepository.findBookByNameContaining(name, pageable);
 //    }
 
-
-//    @Override
-//    public List<Book> findBookByNumberRecord(int numberRecord) {
-//        return bookRepository.findBookByNumberRecord(numberRecord);
-//    }
-
 }
